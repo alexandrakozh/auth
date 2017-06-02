@@ -1,0 +1,13 @@
+<div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {% if g.user.is_authenticated()%}
+                    <li><a href="{{ url_for('images') }}">Images page</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% endif %}
+                {% if not g.user.is_authenticated()%}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+</div>
